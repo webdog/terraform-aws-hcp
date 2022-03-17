@@ -59,3 +59,8 @@ resource "hcp_consul_cluster" "consul" {
   public_endpoint    = var.hcp_consul_public_endpoint
   min_consul_version = var.hcp_consul_version
 }
+
+resource "hcp_consul_cluster_root_token" "consul" {
+  cluster_id = hcp_consul_cluster.consul.0.cluster_id
+}
+
