@@ -21,19 +21,16 @@ variable "hvn_peer" {
 variable "vpc_id" {
   type        = string
   description = "ID of VPC."
-  default     = ""
 }
 
 variable "vpc_owner_id" {
   type        = string
   description = "Owner ID of VPC."
-  default     = ""
 }
 
 variable "vpc_cidr_block" {
   type        = string
   description = "CIDR Block of VPC. Cannot overlap with `hvn_cidr_block`."
-  default     = ""
 }
 
 variable "route_table_ids" {
