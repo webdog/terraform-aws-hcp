@@ -74,7 +74,7 @@ resource "aws_security_group_rule" "hcp_consul" {
 
 
 
-resource "aws_security_group_rule" "hcp_consul" {
+resource "aws_security_group_rule" "hcp_consul_egress" {
   count             = length(local.hcp_consul_security_groups_egress)
   description       = local.hcp_consul_security_groups[count.index].description
   protocol          = local.hcp_consul_security_groups[count.index].protocol
