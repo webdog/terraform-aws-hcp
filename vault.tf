@@ -6,5 +6,10 @@ resource "hcp_vault_cluster" "vault" {
 }
 
 resource "hcp_vault_cluster_admin_token" "token" {
+  # Only create this resource if terraform "can" access the cluster id in the hcp_vault_cluster.vault collection.
+  # Count is equal to the length of the collection, but only retur the first token
+  count = can(hcp_vault_cluster.vault.0.cluster_id) ? length(hcp_vault_cluster.vault) : 0
+  #count = length(hcp_vault_cluster.vault) == 0 ? 0 : 0
+  #cluster_id = hcp_vault_cluster.vault.0.cluster_id
   cluster_id = hcp_vault_cluster.vault.0.cluster_id
 }
